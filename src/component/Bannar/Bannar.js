@@ -3,7 +3,7 @@ import React from "react";
 
 const Bannar = () => {
   return (
-    <div>
+    <div className="m-2 p-2">
       <div
         id="carouselExampleCaptions"
         className="carousel slide"

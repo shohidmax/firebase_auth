@@ -1,0 +1,11 @@
+.qustiondiv{
+    margin: 20px;
+    padding: 10px;
+}
+.qustiondiv h2{
+    color: aqua;
+}
+.qustiondiv p{
+    padding: 10px;
+    margin: 10px;
+}
