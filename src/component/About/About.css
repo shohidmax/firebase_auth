@@ -1,0 +1,12 @@
+.personal{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.personal-data img{
+    width: 250px;
+    border-radius: 10px;
+
+}
+.text-s{
+    margin-bottom: 150px;
+}
