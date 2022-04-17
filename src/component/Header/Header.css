@@ -1,0 +1,8 @@
+.cnav a {
+    width: 26px;
+    margin-right: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: capitalize;
+}

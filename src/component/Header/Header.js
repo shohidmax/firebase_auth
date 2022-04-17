@@ -1,11 +1,12 @@
 import React from "react";
+import './Header.css';
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../image/logo.png";
 
 const Header = () => {
   return (
-    <div>
+    <div className="p-1 m-1 cnav1 ">
       <nav>
         <div>
           <Navbar bg="dark" variant="dark">
@@ -21,11 +22,11 @@ const Header = () => {
                 OnShortS
               </Navbar.Brand>
             </Container>
-            <div>
+            <div className="cnav m-3 "> 
               <Link to="home">home</Link>
               <Link to="About">About</Link>
               <Link to="Blogs">Blogs</Link>
-              <Link to="home">home</Link>
+              <Link to="Login">home</Link>
             </div>
           </Navbar>
         </div>
