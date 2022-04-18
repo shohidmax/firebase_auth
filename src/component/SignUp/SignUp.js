@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import GoogleSignin from '../Login/GoogleSignin';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -43,6 +44,10 @@ const SignUp = () => {
         <div className='form-container'>
             <div>
                 <h2 className='form-title'>Sign Up</h2>
+                <div>
+                    {<GoogleSignin></GoogleSignin>}
+                    <div className='mt-1 mb-1'><h1>Or</h1></div>
+                </div>
                 <form onSubmit={handleCreateUser}>
                     <div className="input-group">
                         <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Your Email' required/>
