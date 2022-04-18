@@ -1,9 +1,13 @@
-import React from 'react';
-import logo from '../../image/google.png';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import React from "react";
+import logo from "../../image/google.png";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 const GoogleSignin = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth, {sendEmailVerification: true});
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   if (error) {
     return (
@@ -13,22 +17,31 @@ const GoogleSignin = () => {
     );
   }
   if (loading) {
-    return <p>Loading...</p>;
+    return <p>Please wait...</p>;
   }
   if (user) {
     return (
       <div>
-        <p >Successfully Loged</p>
+        <p>Successfully Loged</p>
       </div>
     );
   }
-    
-    return (
-        <div className=' btn bg-succes w-50 mx-auto border'>
-            <img style={{width: "30px"}} src={logo} alt="" />
-            <button onClick={() => signInWithGoogle()} style={{ background:"border-box"}} className='border-0'>Google Sign In</button>
-        </div>
-    );
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  return (
+    <div className=" btn bg-succes w-50 mx-auto border">
+      <img style={{ width: "30px" }} src={logo} alt="" />
+      <button
+        onClick={() => signInWithGoogle()}
+        style={{ background: "border-box" }}
+        className="border-0"
+      >
+        Google Sign In
+      </button>
+    </div>
+  );
 };
 
 export default GoogleSignin;
