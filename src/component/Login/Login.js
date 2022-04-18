@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GoogleSignin from './GoogleSignin';
 import './Login.css';
-import { sendPasswordResetEmail } from 'firebase/auth';
+// import { sendPasswordResetEmail } from 'firebase/auth';
 
 const Login = () => {
     const emailRe = useRef('');
@@ -33,6 +33,15 @@ const Login = () => {
     const handlePasswordBlur = event => {
         setPassword(event.target.value);
     }
+    
+    if (user) {
+        navigate(from, {replace: true});
+    }
+
+    const handleUserSignIn = event => {
+        event.preventDefault();
+        signInWithEmailAndPassword(email, password);
+    }
     const resetPassword = async () => {
         const email = emailRe.current.value;
         if (email) {
@@ -42,14 +51,6 @@ const Login = () => {
         else{
             toast('please enter your email address');
         }
-    }
-    if (user) {
-        navigate(from, {replace: true});
-    }
-
-    const handleUserSignIn = event => {
-        event.preventDefault();
-        signInWithEmailAndPassword(email, password);
     }
 
     return (

@@ -44,9 +44,9 @@ const Header = () => {
               <Link to="Checkout">Checkout</Link>
               <Link to="About">About</Link>
               {user ? (
-                <button onClick={handleSignOut}>Log out</button>
+                <button className="btn btn-link" onClick={handleSignOut}>Log out</button>
               ) : (
-                <Link to="/Login">Login</Link>
+                <Link  to="/Login">Login</Link>
               )}
             </div>
           </Navbar>
