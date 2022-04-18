@@ -81,7 +81,7 @@ const Login = () => {
                      
                 </div>
                 <p>
-                    OnShortS? <Link className='form-link' to="/signup">Create an account</Link>
+                    OnShortS ? <Link className='form-link' to="/signup">Create an account</Link>
                 </p>
             </div>
         </div>
