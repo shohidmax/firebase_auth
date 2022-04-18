@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React, { useRef, useState } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import GoogleSignin from './GoogleSignin';
 import './Login.css';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 const Login = () => {
+    const emailRe = useRef('');
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [
@@ -20,13 +25,24 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     const handleEmailBlur = event => {
+        
         setEmail(event.target.value);
     }
+    console.log(handleEmailBlur);
 
     const handlePasswordBlur = event => {
         setPassword(event.target.value);
     }
-
+    const resetPassword = async () => {
+        const email = emailRe.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Verify your Email');
+        }
+        else{
+            toast('please enter your email address');
+        }
+    }
     if (user) {
         navigate(from, {replace: true});
     }
@@ -46,7 +62,7 @@ const Login = () => {
                 </div>
                 <form onSubmit={handleUserSignIn}>
                     <div className="input-group">
-                        <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Your Email' required />
+                        <input ref={emailRe}  onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Your Email' required />
                     </div>
                     <div className="input-group">
                         <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Your Password' required />
@@ -60,7 +76,8 @@ const Login = () => {
                     <input className='form-submit' type="submit" value="Login" />
                 </form>
                 <div>
-                    Forget Password ?<a href="">Lost Password</a>
+                <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password<ToastContainer /></button> </p>
+                     
                 </div>
                 <p>
                     OnShortS? <Link className='form-link' to="/signup">Create an account</Link>
