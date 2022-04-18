@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import GoogleSignin from './GoogleSignin';
 import './Login.css';
 
 const Login = () => {
@@ -39,14 +40,16 @@ const Login = () => {
         <div className='form-container'>
             <div>
                 <h2 className='form-title'>Login</h2>
+                <div>
+                    {<GoogleSignin></GoogleSignin>}
+                    <div className='mt-1 mb-1'><h1>Or</h1></div>
+                </div>
                 <form onSubmit={handleUserSignIn}>
                     <div className="input-group">
-                        <label htmlFor="email">Email</label>
-                        <input onBlur={handleEmailBlur} type="email" name="email" id="" required />
+                        <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Your Email' required />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Password</label>
-                        <input onBlur={handlePasswordBlur} type="password" name="password" id="" required />
+                        <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Your Password' required />
                     </div>
                     <p style={{ color: 'red' }}>{error?.message}</p>
                     {
@@ -56,8 +59,11 @@ const Login = () => {
                     }
                     <input className='form-submit' type="submit" value="Login" />
                 </form>
+                <div>
+                    Forget Password ?<a href="">Lost Password</a>
+                </div>
                 <p>
-                    New to Ema-John? <Link className='form-link' to="/signup">Create an account</Link>
+                    OnShortS? <Link className='form-link' to="/signup">Create an account</Link>
                 </p>
             </div>
         </div>

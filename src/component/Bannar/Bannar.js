@@ -46,7 +46,7 @@ const Bannar = () => {
               <p>
               Make a Memorable day By Wedding photography.
               </p>
-              <Link to='../#service' className="btn btn-primary">Book Now</Link>
+              <Link to="../Checkout" className="btn btn-primary">Book Now</Link>
             </div>
           </div>
           <div className="carousel-item">
@@ -56,7 +56,7 @@ const Bannar = () => {
               <p>
               Make you as a Profesonal Model Artist By Model Photography.
               </p>
-              <button className="btn btn-primary">Book Now</button>
+              <Link to="../Checkout" className="btn btn-primary">Book Now</Link>
             </div>
           </div>
           <div className="carousel-item">
@@ -66,7 +66,8 @@ const Bannar = () => {
               <p>
               Make a Memorable day With Birthday photography.
               </p>
-              <button className="btn btn-primary">Book Now</button>
+              
+              <Link to="../Checkout" className="btn btn-primary">Book Now</Link>
             </div>
           </div>
           <div className="carousel-item">
@@ -76,7 +77,7 @@ const Bannar = () => {
               <p>
                 It's Awsome to make A Memorible Day.
               </p>
-              <button className="btn btn-primary">Book Now</button>
+              <Link to="../Checkout" className="btn btn-primary">Book Now</Link>
             </div>
           </div>
         </div>

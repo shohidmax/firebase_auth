@@ -9,9 +9,7 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
-
     const handleEmailBlur = event =>{
         setEmail(event.target.value);
     }
@@ -19,15 +17,12 @@ const SignUp = () => {
     const handlePasswordBlur = event =>{
         setPassword(event.target.value);
     }
-
     const handleConfirmPasswordBlur = event =>{
         setConfirmPassword(event.target.value);
     }
-
     if(user){
         navigate('/About');
     }
-
     const handleCreateUser = event =>{
         event.preventDefault();
         if(password !== confirmPassword){
@@ -41,23 +36,19 @@ const SignUp = () => {
         
         createUserWithEmailAndPassword(email, password);
     }
-
     return (
         <div className='form-container'>
             <div>
                 <h2 className='form-title'>Sign Up</h2>
                 <form onSubmit={handleCreateUser}>
                     <div className="input-group">
-                        <label htmlFor="email">Email</label>
-                        <input onBlur={handleEmailBlur} type="email" name="email" id="" required/>
+                        <input onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Your Email' required/>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Password</label>
-                        <input onBlur={handlePasswordBlur} type="password" name="password" id=""  required/>
+                        <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Your Password'  required/>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="confirm-password">Confirm Password</label>
-                        <input onBlur={handleConfirmPasswordBlur} type="password" name="confirm-password" id="" />
+                        <input onBlur={handleConfirmPasswordBlur} type="password" name="confirm-password" id="" placeholder='Your Confirm Password' />
                     </div>
                     <p style={{color: 'red'}}>{error}</p>
                     <input className='form-submit' type="submit" value="Sign Up"  required/>
