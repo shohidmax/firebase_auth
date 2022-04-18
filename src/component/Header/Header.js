@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <div className="p-1 m-1 cnav1 ">
+    <div className="p-1 m-1 ">
       <nav>
         <div>
           <Navbar bg="dark" variant="dark">
@@ -40,9 +40,9 @@ const Header = () => {
             </Container>
             <div className="cnav m-3 ">
             <Link to="home">home</Link>
-              <Link to="About">About</Link>
               <Link to="Blogs">Blogs</Link>
               <Link to="Checkout">Checkout</Link>
+              <Link to="About">About</Link>
               {user ? (
                 <button onClick={handleSignOut}>Log out</button>
               ) : (

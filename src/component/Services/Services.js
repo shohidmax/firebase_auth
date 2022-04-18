@@ -4,7 +4,7 @@ import Service from "../Service/Service";
 const Services = () => {
   const [service, setservic] = useState([]);
   useEffect(() => {
-    fetch('Services.json')
+    fetch('https://shohidmax.github.io/serviceapi/services.json')
       .then((res) => res.json())
       .then((datas) => setservic(datas));
   }, []);
