@@ -6,3 +6,17 @@
     text-decoration: none;
     text-transform: capitalize;
 }
+.cnav a:hover{
+    border-bottom: 2px solid rgb(23, 77, 213);
+
+}
+.navclas{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+.navborder{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}

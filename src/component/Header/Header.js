@@ -16,45 +16,53 @@ const Header = () => {
   };
 
   return (
-    <div className="p-1 m-1 ">
-      <nav>
-        <div>
-          <Navbar bg="dark" variant="dark">
-            <Container>
-              <Navbar.Brand href="../Home">
-                <img
-                  alt=""
-                  src={logo}
-                  width="30"
-                  height="30"
-                  className="d-inline-block align-top"
-                />{" "}
-                OnShortS
-              </Navbar.Brand>
-            </Container>
-            <Container>
-              
-              <Nav className="me-auto">
-              
-              </Nav>
-            </Container>
-            <div className="cnav m-3 ">
-            <Link to="home">home</Link>
-              <Link to="Blogs">Blogs</Link>
-              <Link to="Checkout">Checkout</Link>
-              <Link to="About">About</Link>
-              {user ? (
-                <button className="btn btn-link" onClick={handleSignOut}>Log out</button>
-              ) : (
-                <Link  to="/Login">Login</Link>
-              )}
+    <div className="mt-2 p-2 ">
+      <div className="container">
+        <div className="row navborder">
+          <div className="col-md-6 navclass">
+            <div className="d-flex roller">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="../Home">
+                  <img
+                    src={logo}
+                    alt=""
+                    width="30"
+                    
+                    class="d-inline-block align-text-top"
+                  />{"  "}
+                  OnShortS
+                </a>
+              </div>
+              {/* <img
+                alt=""
+                href="../Home"
+                src={logo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{" "}
+              <h4>OnShortS</h4> */}
             </div>
-          </Navbar>
+          </div>
+          <div className="col-md-6">
+            <div className="cnav">
+              <nav>
+                <Link to="home">home</Link>
+                <Link to="Blogs">Blogs</Link>
+                <Link to="Checkout">Checkout</Link>
+                <Link to="About">About</Link>
+                {user ? (
+                  <button className="btn btn-link" onClick={handleSignOut}>
+                    Log out
+                  </button>
+                ) : (
+                  <Link to="/Login">Login</Link>
+                )}
+              </nav>
+            </div>
+          </div>
         </div>
-        {/* <div>
-          <Link to="home">home</Link>
-        </div> */}
-      </nav>
+      </div>
     </div>
   );
 };
