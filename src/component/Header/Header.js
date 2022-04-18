@@ -3,8 +3,21 @@ import './Header.css';
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../image/logo.png";
+import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
+
+  const [user] = useAuthState(auth);
+  console.log(user);
+
+  const handleSignOut = () =>{
+      signOut(auth);
+  }
+
+
+
   return (
     <div className="p-1 m-1 cnav1 ">
       <nav>
@@ -26,7 +39,14 @@ const Header = () => {
               <Link to="home">home</Link>
               <Link to="About">About</Link>
               <Link to="Blogs">Blogs</Link>
-              <Link to="Login">home</Link>
+              <Link to="Checkout">Checkout</Link>
+              {
+                    user ?
+                    
+                    <button onClick={handleSignOut}>Log out</button>
+                    :
+                    <Link to="/Login">Login</Link>}
+              <Link to="Signup">Signup</Link>
             </div>
           </Navbar>
         </div>

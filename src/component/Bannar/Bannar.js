@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const Bannar = () => {
@@ -45,7 +46,7 @@ const Bannar = () => {
               <p>
               Make a Memorable day By Wedding photography.
               </p>
-              <button className="btn btn-primary">Book Now</button>
+              <Link to='../#service' className="btn btn-primary">Book Now</Link>
             </div>
           </div>
           <div className="carousel-item">
