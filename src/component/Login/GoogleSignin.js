@@ -33,7 +33,7 @@ const GoogleSignin = () => {
   }
 
   return (
-    <div className=" btn bg-succes w-50 mx-auto border">
+    <div className=" btn bg-succes w-100 mx-auto border">
       <img style={{ width: "30px" }} src={logo} alt="" />
       <button
         onClick={() => signInWithGoogle()}
