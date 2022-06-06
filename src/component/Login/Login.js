@@ -68,12 +68,14 @@ const Login = () => {
                     <div className="input-group">
                         <input onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Your Password' required />
                     </div>
-                    <p style={{ color: 'red' }}>{error?.message}</p>
+                    <p style={{ color: 'red' }}>{ error?.message ? (<div><p>please Provide Valid Information</p></div>):(<div></div>)
+                    
+                    }</p><br/>
                     {
                         loading && <div class="spinner-border text-success" role="status">
                         <span class="visually-hidden">Loading...</span>
                       </div>
-                    }
+                    } <br/>
                     <input className='form-submit' type="submit" value="Login" />
                 </form>
                 <div>

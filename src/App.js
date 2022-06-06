@@ -8,7 +8,6 @@ import About from "./component/About/About";
 import Notfound from "./component/Notfound/404";
 import SignUp from "./component/SignUp/SignUp";
 import Login from "./component/Login/Login";
-import Requireauth from "./component/Requreauth/Requreauth";
 import Checkout from "./component/Checkout/Checkout";
 
 function App() {

@@ -1,11 +1,11 @@
 import React from "react";
 import "./Header.css";
-import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../image/logo.png";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
+
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -47,14 +47,14 @@ const Header = () => {
           <div className="col-md-6">
             <div className="cnav">
               <nav>
-                <Link to="home">home</Link>
+                <Link className="btn btn-link" to="home">home</Link>
                 <Link to="Blogs">Blogs</Link>
                 <Link to="Checkout">Checkout</Link>
                 <Link to="About">About</Link>
                 {user ? (
-                  <button className="btn btn-link" onClick={handleSignOut}>
-                    Log out
-                  </button>
+                  <button className="btn btnLogout" onClick={handleSignOut}>
+                  Log out
+                </button>
                 ) : (
                   <Link to="/Login">Login</Link>
                 )}
